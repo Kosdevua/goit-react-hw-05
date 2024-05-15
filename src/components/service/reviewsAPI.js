@@ -1,10 +1,10 @@
-
 import axios from "axios";
 
 axios.defaults.baseURL = "https://api.themoviedb.org/3/";
 
 const API_KEY = "21cdedd710ee7098e1f7c7f5d59f8230";
 const urlTrending = "movie";
+const urlReviews = "reviews";
 
 const options = {
   headers: {
@@ -15,9 +15,11 @@ const options = {
 };
 
 const fetchCastById = async (movieId) => {
-  const { data } = await axios.get(`${urlTrending}/${movieId}`, options);
+  const { data } = await axios.get(
+    `${urlTrending}/${movieId}/${urlReviews}`,
+    options
+  );
   return data;
 };
 
 export default fetchCastById;
-
