@@ -1,0 +1,10 @@
+.movie_cast_wrapper {
+  display: flex;
+  gap: 10px;
+}
+.movie_cast_wrapper li {
+  list-style-type: none;
+}
+.image_wrapper {
+  width: 150px;
+}

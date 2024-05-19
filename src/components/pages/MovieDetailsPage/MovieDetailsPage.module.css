@@ -6,3 +6,7 @@
 .details_wrapper h2 {
   margin: 0;
 }
+.link_wrapper {
+  display: flex;
+  gap: 24px;
+}

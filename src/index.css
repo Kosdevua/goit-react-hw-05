@@ -1,3 +1,10 @@
+li,
+a {
+  list-style-type: none;
+  text-decoration: none;
+  margin: 0;
+}
+
 /* html {
   scroll-behavior: smooth;
   background-color: rgb(27, 27, 27);

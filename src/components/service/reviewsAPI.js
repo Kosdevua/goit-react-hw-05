@@ -14,7 +14,7 @@ const options = {
   params: { safesearch: "true", api_key: API_KEY },
 };
 
-const fetchCastById = async (movieId) => {
+const fetchReviewsById = async (movieId) => {
   const { data } = await axios.get(
     `${urlTrending}/${movieId}/${urlReviews}`,
     options
@@ -22,4 +22,4 @@ const fetchCastById = async (movieId) => {
   return data;
 };
 
-export default fetchCastById;
+export default fetchReviewsById;

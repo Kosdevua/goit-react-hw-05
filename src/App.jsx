@@ -19,10 +19,8 @@ function App() {
             <Route path="cast" element={<MovieCast />} />
             <Route path="reviews" element={<MovieReviews />} />
           </Route>
-
-          <Route path="*" element={<NotFoundPage />} />
-          {/* /movies/:movieId/cast */}
         </Route>
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

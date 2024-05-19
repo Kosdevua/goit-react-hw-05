@@ -15,6 +15,7 @@ const MovieDetailsPage = () => {
         const data = await fetchMovieById(movieId);
         setMovies(data);
       } catch (error) {
+        console.log(error);
         setError(error.message);
       }
       getData;
@@ -59,10 +60,9 @@ const MovieDetailsPage = () => {
       </div>
       <div>
         <hr />
-
-        <nav>
-          <Link to="cast">Home</Link>
-          <Link to="reviews">Movies</Link>
+        <nav className={s.link_wrapper}>
+          <Link to="cast">Cast </Link>
+          <Link to="reviews">Reviews</Link>
         </nav>
         <Outlet />
       </div>
