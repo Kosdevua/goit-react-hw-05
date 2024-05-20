@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
-import fetchReviewsById from "../service/reviewsAPI";
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import fetchReviewsById from '../service/reviewsAPI';
+import { useParams } from 'react-router-dom';
+// import moduleName from "module";
 
 const MovieReviews = () => {
   const { movieId } = useParams();
@@ -13,7 +14,6 @@ const MovieReviews = () => {
         const data = await fetchReviewsById(movieId);
         setReviewDetails(() => [...data.results]);
         console.log(data);
-        // console.log(data);
       } catch (error) {
         setError(error.message);
       }
@@ -22,13 +22,14 @@ const MovieReviews = () => {
   }, [movieId]);
   return (
     <ul>
-      {reviewDetails &&
-        reviewDetails.map((detail) => (
-          <li key={detail.id}>
-            <h3>{detail.author}</h3>
-            <p>{detail.content}</p>
-          </li>
-        ))}
+      {reviewDetails
+        ? reviewDetails.map(detail => (
+            <li key={detail.id}>
+              <h3>{detail.author}</h3>
+              <p>{detail.content}</p>
+            </li>
+          ))
+        : 'no review'}
     </ul>
   );
 };

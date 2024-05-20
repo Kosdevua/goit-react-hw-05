@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 
 const NotFoundPage = () => {
   return (
     <div>
-      <Link to="/">go back</Link>
+      <NavLink to="/">go back</NavLink>
       <p>404</p>
       <p>NotFoundPage</p>
     </div>

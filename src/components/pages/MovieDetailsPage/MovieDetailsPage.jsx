@@ -1,22 +1,26 @@
-import { useEffect, useState } from "react";
-import { Link, Outlet, useParams } from "react-router-dom";
-import fetchMovieById from "../../service/detailsAPI";
-import s from "./MovieDetailsPage.module.css";
+import { useEffect, useState } from 'react';
+import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
+import fetchMovieById from '../../service/detailsAPI';
+import s from './MovieDetailsPage.module.css';
 // import MovieCast from "../../MovieCast/MovieCast";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movie, setMovies] = useState(null);
   const [error, setError] = useState(false);
+  const [loader, setLoading] = useState(false);
 
   useEffect(() => {
     const getData = async () => {
       try {
         const data = await fetchMovieById(movieId);
         setMovies(data);
+        setLoading(true);
       } catch (error) {
         console.log(error);
         setError(error.message);
+      } finally {
+        setLoading(false);
       }
       getData;
     };
@@ -25,14 +29,12 @@ const MovieDetailsPage = () => {
 
   return (
     <>
-      <Link to="/">go back</Link>
+      <NavLink to="/">go back</NavLink>
       <div className={s.details_wrapper}>
         <div>
           <img
             width={200}
-            src={
-              movie && `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-            }
+            src={movie && `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
             alt={movie && movie.title}
           />
         </div>
@@ -42,7 +44,7 @@ const MovieDetailsPage = () => {
             <span>({movie && new Date(movie.release_date).getFullYear()})</span>
           </h2>
           <p>
-            User score:{" "}
+            User score:{' '}
             <span>
               {movie && Math.round(movie.vote_average) * 10}
               <span>%</span>
@@ -53,7 +55,7 @@ const MovieDetailsPage = () => {
           <h3>Genres</h3>
           <p>
             {movie &&
-              movie.genres.map((genre) => {
+              movie.genres.map(genre => {
                 return <span key={genre.id}>{genre.name} </span>;
               })}
           </p>
