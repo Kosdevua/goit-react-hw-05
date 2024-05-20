@@ -50,7 +50,6 @@ export const MoviesPage = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        {/* <HiSearch /> */}
         <input placeholder="Enter your search..." type="text" defaultValue={movieName} name="query" />
         <button type="submit">Search</button>
       </form>
@@ -66,6 +65,7 @@ export const MoviesPage = () => {
           wrapperClass=""
         />
       )}
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       {hasSearched && !loading && data.length === 0 && <p>No results found</p>}
       {data.length > 0 && <MovieList type="movies" movies={data} />}
     </>

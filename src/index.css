@@ -5,9 +5,9 @@ a {
   margin: 0;
 }
 
-/* html {
+html {
   scroll-behavior: smooth;
-  background-color: rgb(27, 27, 27);
+  /* background-color: rgb(27, 27, 27); */
 }
 
 h1,
@@ -65,8 +65,8 @@ img {
 }
 
 :root {
-  --font-family: "Gilroy", sans-serif;
-  background-color: #1f1e1e;
+  --font-family: 'Gilroy', sans-serif;
+  /* background-color: #1f1e1e; */
 }
 
 .container {
@@ -111,7 +111,7 @@ body {
   font-family: var(--font-family);
   color: var(--main);
   line-height: 125%;
-  font-family: "Gilroy", sans-serif;
+  font-family: 'Gilroy', sans-serif;
   background-color: #fbfbfb;
   scroll-behavior: smooth;
 }
@@ -138,4 +138,4 @@ body {
 ::-webkit-scrollbar-thumb {
   background-color: var(--accent);
   border-radius: 30px;
-} */
+}

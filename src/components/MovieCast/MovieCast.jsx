@@ -26,15 +26,31 @@ const MovieCast = () => {
   // console.log('castDetails: ', castDetails);
 
   return (
-    <ul className={s.movie_cast_wrapper}>
-      {castDetails &&
-        castDetails.map(detail => (
-          <li key={detail.id}>
-            <p>{detail.original_name}</p>
-            <img className={s.image_wrapper} src={`https://image.tmdb.org/t/p/w500/${detail.profile_path}`} alt="" />
-          </li>
-        ))}
-    </ul>
+    <div>
+      <ul className={s.movie_cast_wrapper}>
+        {castDetails &&
+          castDetails.map(detail => (
+            <li key={detail.id}>
+              <p>{detail.original_name}</p>
+              {detail.profile_path ? (
+                <div className={s.image_wrapper}>
+                  <img
+                    className={s.image_actor}
+                    src={`https://image.tmdb.org/t/p/w500/${detail.profile_path}`}
+                    alt={detail.original_name}
+                  />
+                </div>
+              ) : (
+                'No image'
+                // <img className={s.image_wrapper} src={'./DefaultImage.png'} alt={detail.original_name} />
+              )}
+              {/* {defaultImage && (
+                <img className={s.image_wrapper} src={`https://image.tmdb.org/t/p/w500/${detail.profile_path}`} alt="" />
+              )} */}
+            </li>
+          ))}
+      </ul>
+    </div>
   );
 };
 

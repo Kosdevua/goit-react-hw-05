@@ -1,8 +1,15 @@
 .layout_wrapper {
-  background-color: rgb(46, 46, 46);
-  color: rgb(20, 20, 182);
+  display: flex;
+  gap: 10px;
 }
-.layout_wrapper nav {
-  font-size: 28px;
-  background-color: rgb(46, 46, 46);
+
+.navLink {
+  padding: 10px 20px; /* Відступи всередині елементів */
+  text-decoration: none; /* Видалення підкреслення тексту */
+  color: black; /* Колір тексту */
+}
+
+.navLink.active {
+  font-weight: bold; /* Виділення активного посилання */
+  color: blue; /* Колір активного посилання */
 }

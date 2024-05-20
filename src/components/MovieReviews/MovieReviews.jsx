@@ -6,7 +6,6 @@ import { useParams } from 'react-router-dom';
 const MovieReviews = () => {
   const { movieId } = useParams();
   const [reviewDetails, setReviewDetails] = useState(null);
-  const [error, setError] = useState(false);
 
   useEffect(() => {
     const getReviwsDetails = async () => {
@@ -15,7 +14,7 @@ const MovieReviews = () => {
         setReviewDetails(() => [...data.results]);
         console.log(data);
       } catch (error) {
-        setError(error.message);
+        console.log(error.message);
       }
     };
     getReviwsDetails();
