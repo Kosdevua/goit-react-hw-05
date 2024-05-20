@@ -6,11 +6,12 @@ import { Audio } from "react-loader-spinner";
 
 export const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const movieName = searchParams.get("query") ?? "";
+  const movieName = searchParams.get("query") || "";
 
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [hasSearched, setHasSearched] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,6 +41,7 @@ export const MoviesPage = () => {
         setError(true);
       } finally {
         setLoading(false);
+        setHasSearched(true);
       }
     };
     getData();
@@ -69,11 +71,8 @@ export const MoviesPage = () => {
           wrapperClass
         />
       )}
-      {data.length ? (
-        <MovieList type="movies" movies={data} />
-      ) : (
-        "no results found"
-      )}
+      {hasSearched && !loading && data.length === 0 && <p>No results found</p>}
+      {data.length > 0 && <MovieList type="movies" movies={data} />}
     </>
   );
 };

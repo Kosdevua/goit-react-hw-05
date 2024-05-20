@@ -25,6 +25,7 @@ const MovieDetailsPage = () => {
 
   return (
     <>
+      <Link to="/">go back</Link>
       <div className={s.details_wrapper}>
         <div>
           <img
