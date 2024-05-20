@@ -1,12 +1,12 @@
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Layout from './components/Layout';
 import { lazy, Suspense } from 'react';
 
-const MovieDetailsPage = lazy(() => import('./components/pages/MovieDetailsPage/MovieDetailsPage'));
 import MovieCast from './components/MovieCast/MovieCast';
+import Navigation from './components/Navigation/Navigation';
 import MovieReviews from './components/MovieReviews/MovieReviews';
 const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage/NotFoundPage'));
+const MovieDetailsPage = lazy(() => import('./components/pages/MovieDetailsPage/MovieDetailsPage'));
 const MoviesPage = lazy(() => import('./components/pages/MoviesPage/MoviesPage'));
 const HomePage = lazy(() => import('./components/pages/HomePage/HomePage'));
 // import NotFoundPage from './components/pages/NotFoundPage/NotFoundPage';
@@ -19,7 +19,7 @@ function App() {
     <>
       <Suspense fallback={<p>Loading ...</p>}>
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/" element={<Navigation />}>
             <Route index element={<HomePage />} />
             <Route path="movies" element={<MoviesPage />} />
             <Route path="movies/:movieId" element={<MovieDetailsPage />}>

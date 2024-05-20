@@ -1,8 +1,17 @@
-.list_movies_page {
+input {
+  font-size: 16px;
+}
+
+button {
+  font-size: 16px;
   padding: 10px;
-  font-size: 14;
-  line-height: 1.5vw;
+  border-radius: 5px;
+  margin-left: 5px;
 }
 input {
-  font-size: large;
+  font-size: 16px;
+  border: 1px solid black;
+  outline: transparent;
+  padding: 10px;
+  border-radius: 5px;
 }

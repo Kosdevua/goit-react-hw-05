@@ -1,15 +1,17 @@
 .layout_wrapper {
+  font-size: 18px;
   display: flex;
-  gap: 10px;
+  gap: 20px;
 }
 
 .navLink {
-  padding: 10px 20px; /* Відступи всередині елементів */
+  padding: 5px 0; /* Відступи всередині елементів */
   text-decoration: none; /* Видалення підкреслення тексту */
   color: black; /* Колір тексту */
 }
 
 .navLink.active {
+  text-decoration: underline;
   font-weight: bold; /* Виділення активного посилання */
   color: blue; /* Колір активного посилання */
 }

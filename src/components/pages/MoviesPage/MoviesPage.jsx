@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import MovieList from '../../MovieList/MovieList';
 import { ThreeDots } from 'react-loader-spinner';
+import s from './MoviesPage.module.css';
 
 export const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -49,7 +50,7 @@ export const MoviesPage = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className={s.form} onSubmit={handleSubmit}>
         <input placeholder="Enter your search..." type="text" defaultValue={movieName} name="query" />
         <button type="submit">Search</button>
       </form>

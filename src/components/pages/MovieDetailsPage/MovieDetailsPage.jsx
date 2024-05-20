@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Link, NavLink, Outlet, useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import fetchMovieById from '../../service/detailsAPI';
 import s from './MovieDetailsPage.module.css';
 import { ThreeDots } from 'react-loader-spinner';
-// import MovieCast from "../../MovieCast/MovieCast";
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
@@ -49,6 +48,7 @@ const MovieDetailsPage = () => {
         <div className={s.details_wrapper}>
           <div>
             <img
+              className={s.img_wrapper}
               width={500}
               src={movie && `https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
               alt={movie && movie.title}
@@ -78,12 +78,12 @@ const MovieDetailsPage = () => {
           </div>
         </div>
       )}
-
+      {error && <p style={{ color: 'red' }}>{error}</p>}
       <div>
         <hr />
         <nav className={s.link_wrapper}>
-          <Link to="cast">Cast </Link>
-          <Link to="reviews">Reviews</Link>
+          <NavLink to="cast">Cast </NavLink>
+          <NavLink to="reviews">Reviews</NavLink>
         </nav>
         <Outlet />
       </div>

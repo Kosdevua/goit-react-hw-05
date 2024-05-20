@@ -1,22 +1,23 @@
 .details_wrapper {
   display: flex;
-  flex-direction: row;
-  gap: 10px;
+  /* flex-direction: row; */
+  /* gap: 10px; */
 }
 .details_wrapper h2 {
   margin-bottom: 40px;
 }
 
-.details_wrapper > div {
-  width: 300px;
+.img_wrapper {
+  max-width: 300px;
 }
 
 .link_wrapper {
   display: flex;
   gap: 24px;
+  margin-bottom: 10px;
 }
 .discription_wrapper {
-  /* padding: 20px; */
+  margin-left: 10px;
 }
 .discription_wrapper p {
   margin-bottom: 20px;
@@ -27,4 +28,6 @@
 
 button {
   padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
 }
