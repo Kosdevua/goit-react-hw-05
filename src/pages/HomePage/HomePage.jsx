@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
-import fetchTrend from "../../service/trandsAPI";
-// import MoviesPage from "../MoviesPage/MoviesPage";
-import MovieList from "../../MovieList/MovieList";
+import { useEffect, useState } from 'react';
+import fetchTrend from '../../service/trandsAPI';
+import MovieList from '../../components/MovieList/MovieList';
 
 const HomePage = () => {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
-    fetchTrend().then((response) => {
+    fetchTrend().then(response => {
       setMovies(response); // Отримання результатів з об'єкту відповіді
     });
   }, []);

@@ -5,14 +5,14 @@ import { lazy, Suspense } from 'react';
 import MovieCast from './components/MovieCast/MovieCast';
 import Navigation from './components/Navigation/Navigation';
 import MovieReviews from './components/MovieReviews/MovieReviews';
-const NotFoundPage = lazy(() => import('./components/pages/NotFoundPage/NotFoundPage'));
-const MovieDetailsPage = lazy(() => import('./components/pages/MovieDetailsPage/MovieDetailsPage'));
-const MoviesPage = lazy(() => import('./components/pages/MoviesPage/MoviesPage'));
-const HomePage = lazy(() => import('./components/pages/HomePage/HomePage'));
-// import NotFoundPage from './components/pages/NotFoundPage/NotFoundPage';
-// import MovieDetailsPage from './components/pages/MovieDetailsPage/MovieDetailsPage';
-// import MoviesPage from './components/pages/MoviesPage/MoviesPage';
-// import HomePage from './components/pages/HomePage/HomePage';
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
+const MovieDetailsPage = lazy(() => import('./pages/MovieDetailsPage/MovieDetailsPage'));
+const MoviesPage = lazy(() => import('./pages/MoviesPage/MoviesPage'));
+const HomePage = lazy(() => import('./pages/HomePage/HomePage'));
+// import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+// import MovieDetailsPage from './pages/MovieDetailsPage/MovieDetailsPage';
+// import MoviesPage from './pages/MoviesPage/MoviesPage';
+// import HomePage from './pages/HomePage/HomePage';
 
 function App() {
   return (

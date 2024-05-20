@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import fetchReviewsById from '../service/reviewsAPI';
+import fetchReviewsById from '../../service/reviewsAPI';
 import { useParams } from 'react-router-dom';
 import s from './MovieReviews.module.css';
 

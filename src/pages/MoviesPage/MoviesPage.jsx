@@ -1,9 +1,9 @@
 import getMovies from '../../service/searchQueryAPI';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import MovieList from '../../MovieList/MovieList';
 import { ThreeDots } from 'react-loader-spinner';
 import s from './MoviesPage.module.css';
+import MovieList from '../../components/MovieList/MovieList';
 
 export const MoviesPage = () => {
   const [searchParams, setSearchParams] = useSearchParams();
