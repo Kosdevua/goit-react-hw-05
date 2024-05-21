@@ -1,41 +1,40 @@
-import { useEffect, useRef, useState } from 'react';
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
+import { NavLink, Outlet, useParams, useLocation, useNavigate } from 'react-router-dom';
 import fetchMovieById from '../../service/detailsAPI';
 import s from './MovieDetailsPage.module.css';
 import { ThreeDots } from 'react-loader-spinner';
 
 const MovieDetailsPage = () => {
   const { movieId } = useParams();
-  const [movie, setMovies] = useState(null);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [movie, setMovie] = useState(null);
   const [error, setError] = useState(false);
-  const [loader, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  const goBackRef = useRef(location.state?.from ?? '/');
+  const backLocationRef = useRef(location.state?.from || '/');
 
   useEffect(() => {
     const getData = async () => {
       try {
-        const data = await fetchMovieById(movieId);
-        setMovies(data);
         setLoading(true);
+        const data = await fetchMovieById(movieId);
+        setMovie(data);
       } catch (error) {
         console.log(error);
         setError(error.message);
       } finally {
         setLoading(false);
       }
-      getData;
     };
     getData();
   }, [movieId]);
 
   return (
     <>
-      <NavLink to={goBackRef.current}>
-        <button>go back</button>
-      </NavLink>
+      <NavLink to={backLocationRef.current}>Go back</NavLink>
 
-      {loader ? (
+      {loading ? (
         <ThreeDots
           visible={true}
           height="60"
@@ -62,7 +61,7 @@ const MovieDetailsPage = () => {
               <span>({movie && new Date(movie.release_date).getFullYear()})</span>
             </h2>
             <p>
-              User score:{' '}
+              User score:
               <span>
                 {movie && Math.round(movie.vote_average) * 10}
                 <span>%</span>
